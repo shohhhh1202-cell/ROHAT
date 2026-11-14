@@ -2,553 +2,502 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROXAT CHOYXONA | Premium Dining</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROXAT CHOYXONA</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-:root {
-    --green: #10291d;
-    --dark: #091b13;
-    --gold: #d9b45b;
-    --cream: #f7f1e5;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #071b14;
+      color: #f8f1df;
+    }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    header {
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b241a;
+      border-bottom: 1px solid #b99545;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
 
-html { scroll-behavior: smooth; }
+    .logo {
+      color: #d8b45b;
+      font-size: 27px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
 
-body {
-    background: var(--dark);
-    color: var(--cream);
-    font-family: 'Montserrat', sans-serif;
-}
+    nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-button { cursor: pointer; }
+    nav a {
+      color: #f8f1df;
+      text-decoration: none;
+    }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 7%;
-    background: #0c2117;
-    border-bottom: 1px solid #b38d43;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+    nav a:hover {
+      color: #d8b45b;
+    }
 
-.logo {
-    color: var(--gold);
-    font-family: 'Playfair Display', serif;
-    font-size: 25px;
-    font-weight: bold;
-}
+    .hero {
+      min-height: 420px;
+      padding: 80px 7%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.25)),
+        url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4")
+        center/cover;
+    }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 22px;
-    font-size: 13px;
-}
+    .hero h1 {
+      color: #e4c16b;
+      font-size: clamp(35px, 6vw, 60px);
+      margin-bottom: 15px;
+    }
 
-nav a:hover { color: var(--gold); }
+    .hero p {
+      font-size: 18px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
 
-.hero {
-    min-height: 570px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 70px 20px;
-    background:
-    linear-gradient(rgba(4,20,12,.72),rgba(4,20,12,.88)),
-    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600');
-    background-size: cover;
-    background-position: center;
-}
+    .section {
+      padding: 55px 7%;
+    }
 
-.hero-content { max-width: 750px; }
+    .section-title {
+      text-align: center;
+      color: #e4c16b;
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
 
-.hero small {
-    color: var(--gold);
-    letter-spacing: 5px;
-    font-weight: bold;
-}
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
 
-.hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(42px, 8vw, 76px);
-    margin: 25px 0;
-}
+    .food-card {
+      background: #102b20;
+      border: 1px solid #80672f;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: .3s;
+    }
 
-.hero h1 span { color: var(--gold); }
+    .food-card:hover {
+      transform: translateY(-5px);
+    }
 
-.hero p {
-    line-height: 1.9;
-    color: #ddd;
-    margin-bottom: 30px;
-}
+    .food-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
 
-.gold-btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background: var(--gold);
-    color: #10291d;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 800;
-    border: none;
-}
+    .food-info {
+      padding: 17px;
+    }
 
-.gold-btn:hover { background: #f0d38c; }
+    .food-info h3 {
+      color: #e4c16b;
+      margin-bottom: 10px;
+    }
 
-section { padding: 75px 7%; }
+    .price {
+      margin: 12px 0;
+      font-weight: bold;
+    }
 
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
+    button {
+      background: #c49b45;
+      color: #102016;
+      border: none;
+      padding: 11px 17px;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.section-title small {
-    color: var(--gold);
-    letter-spacing: 4px;
-}
+    button:hover {
+      background: #e6c36f;
+    }
 
-.section-title h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    margin-top: 12px;
-}
+    .cart {
+      background: #102b20;
+      border: 1px solid #80672f;
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 750px;
+      margin: auto;
+    }
 
-.section-title p {
-    color: #aaa;
-    margin-top: 12px;
-    line-height: 1.7;
-}
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #52664f;
+      padding: 13px 0;
+      flex-wrap: wrap;
+    }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 22px;
-    max-width: 1200px;
-    margin: auto;
-}
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
 
-.food-card {
-    background: #142d20;
-    border: 1px solid #294532;
-    border-radius: 12px;
-    overflow: hidden;
-    transition: .3s;
-}
+    .cart-controls button {
+      padding: 6px 11px;
+    }
 
-.food-card:hover {
-    transform: translateY(-7px);
-    border-color: var(--gold);
-}
+    .remove {
+      background: #9d3e35;
+      color: white;
+    }
 
-.food-card img {
-    width: 100%;
-    height: 175px;
-    object-fit: cover;
-}
+    .total {
+      margin-top: 20px;
+      line-height: 2;
+      font-size: 17px;
+    }
 
-.food-details { padding: 17px; }
+    .total strong {
+      color: #e4c16b;
+      font-size: 21px;
+    }
 
-.food-details h3 {
-    font-size: 17px;
-    margin-bottom: 10px;
-}
+    .order-btn {
+      width: 100%;
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 16px;
+    }
 
-.food-details p {
-    color: var(--gold);
-    font-weight: bold;
-    margin-bottom: 15px;
-}
+    .social {
+      text-align: center;
+      background: #0b241a;
+      padding: 45px 20px;
+    }
 
-.food-details button {
-    width: 100%;
-    padding: 12px;
-    background: var(--gold);
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-}
+    .social h2 {
+      color: #e4c16b;
+      margin-bottom: 15px;
+    }
 
-.food-details button:hover { background: #f1d68f; }
+    .social p {
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
 
-#tableNumber {
-    text-align: center;
-    color: var(--gold);
-    font-weight: bold;
-    padding: 18px;
-    background: #10291d;
-}
+    .social a {
+      display: inline-block;
+      color: #e4c16b;
+      border: 1px solid #c49b45;
+      padding: 12px 20px;
+      margin: 6px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
 
-.cart {
-    max-width: 850px;
-    margin: 30px auto 0;
-    background: #142d20;
-    border: 1px solid var(--gold);
-    border-radius: 12px;
-    padding: 25px;
-}
+    .social a:hover {
+      background: #c49b45;
+      color: #102016;
+    }
 
-.cart h2 {
-    text-align: center;
-    color: var(--gold);
-    font-family: 'Playfair Display',serif;
-    margin-bottom: 20px;
-}
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #c7b98f;
+      background: #06150f;
+    }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 0;
-    border-bottom: 1px solid #34503a;
-}
+    @media(max-width: 600px) {
+      header {
+        flex-direction: column;
+      }
 
-.remove-btn {
-    background: #a33c32;
-    color: white;
-    border: none;
-    padding: 7px 11px;
-    border-radius: 5px;
-}
+      .hero {
+        min-height: 350px;
+      }
 
-.total {
-    line-height: 2.2;
-    margin-top: 20px;
-}
-
-.total strong {
-    color: var(--gold);
-    font-size: 20px;
-}
-
-.order-btn {
-    width: 100%;
-    margin-top: 20px;
-    padding: 16px;
-    background: #229e59;
-    color: white;
-    border: none;
-    border-radius: 7px;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.social {
-    background: #10291d;
-    text-align: center;
-}
-
-.social p {
-    color: #ccc;
-    max-width: 600px;
-    margin: 18px auto;
-    line-height: 1.9;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 25px;
-}
-
-.social-links a {
-    text-decoration: none;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 7px;
-    font-weight: bold;
-}
-
-.instagram { background: #bd367c; }
-.telegram { background: #229ed9; }
-
-footer {
-    text-align: center;
-    padding: 30px 15px;
-    background: #07150e;
-    color: #aaa;
-    font-size: 13px;
-    line-height: 2;
-}
-
-footer span { color: var(--gold); }
-
-@media(max-width:600px) {
-    nav { padding: 17px 4%; }
-    nav a { margin-left: 9px; font-size: 11px; }
-    .logo { font-size: 19px; }
-    section { padding: 55px 5%; }
-    .hero { min-height: 470px; }
-    .section-title h2 { font-size: 30px; }
-}
-</style>
+      .section {
+        padding: 40px 5%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-    <div class="logo">ROXAT ✦</div>
-    <div>
-        <a href="#home">Bosh sahifa</a>
-        <a href="#menu">Menyu</a>
-        <a href="#social">Aloqa</a>
-    </div>
-</nav>
+  <header>
+    <div class="logo">ROXAT CHOYXONA</div>
 
-<header class="hero" id="home">
-    <div class="hero-content">
-        <small>PREMIUM RESTAURANT</small>
-        <h1>ROXAT <span>CHOYXONA</span></h1>
-        <p>
-            Milliy taomlar, betakror ta'm va yuqori darajadagi xizmat.
-            Siz uchun eng yaxshi muhit va unutilmas taassurot!
-        </p>
-        <a href="#menu" class="gold-btn">MENYUNI KO'RISH ↓</a>
-    </div>
-</header>
+    <nav>
+      <a href="#home">Bosh sahifa</a>
+      <a href="#menu">Menyu</a>
+      <a href="#cart">Savatcha</a>
+      <a href="#social">Aloqa</a>
+    </nav>
+  </header>
 
-<div id="tableNumber">🪑 Stol raqami: aniqlanmoqda...</div>
+  <section class="hero" id="home">
+    <h1>ROXAT CHOYXONA</h1>
+    <p>
+      Milliy taomlar, ajoyib muhit va unutilmas ta'm.
+      Sizni mazali taomlarimiz bilan kutib qolamiz!
+    </p>
+  </section>
 
-<section id="menu">
-    <div class="section-title">
-        <small>OUR MENU</small>
-        <h2>Bizning menyu</h2>
-        <p>Sevimli taomingizni tanlang va buyurtma bering.</p>
-    </div>
+  <section class="section" id="menu">
+    <h2 class="section-title">Bizning menyu</h2>
+    <div class="menu" id="menuList"></div>
+  </section>
 
-    <div class="menu-grid" id="menuGrid"></div>
+  <section class="section" id="cart">
+    <h2 class="section-title">Savatchangiz</h2>
 
     <div class="cart">
-        <h2>🛒 Sizning savatchangiz</h2>
+      <div id="cartItems">Savatcha hozircha bo‘sh.</div>
 
-        <div id="cartItems">Savatcha hozircha bo'sh</div>
+      <div class="total">
+        <p>Mahsulotlar: <span id="subtotal">0</span> so‘m</p>
+        <p>Xizmat haqi (10%): <span id="service">0</span> so‘m</p>
+        <p>Jami: <strong id="total">0</strong> so‘m</p>
+        <p>Stol raqami: <strong id="tableNumber">Belgilanmagan</strong></p>
+      </div>
 
-        <div class="total">
-            <div>Jami: <span id="subtotal">0</span> so'm</div>
-            <div>Xizmat haqi (10%): <span id="service">0</span> so'm</div>
-            <hr>
-            <strong>Umumiy: <span id="total">0</span> so'm</strong>
-        </div>
-
-        <button class="order-btn" onclick="sendOrder()">
-            ✈️ TELEGRAM ORQALI BUYURTMA
-        </button>
+      <button class="order-btn" onclick="sendOrder()">
+        Telegram orqali buyurtma berish
+      </button>
     </div>
-</section>
+  </section>
 
-<section class="social" id="social">
-    <div class="section-title">
-        <small>FOLLOW US</small>
-        <h2>Biz bilan aloqada bo'ling</h2>
-    </div>
+  <section class="social" id="social">
+    <h2>Bizning rasmiy sahifalarimiz</h2>
 
     <p>
-        ROXAT CHOYXONANING barcha yangiliklari,
-        e'lonlari, aksiyalari va maxsus takliflari
-        bizning rasmiy ijtimoiy sahifalarimizda joylashtiriladi.
-        Bizni kuzatib boring!
+      ROXAT CHOYXONA yangiliklari, yangi taomlar,
+      aksiyalar va e'lonlarni rasmiy sahifalarimizda kuzatib boring!
     </p>
 
-    <div class="social-links">
-        <a class="instagram"
-           href="https://instagram.com/roxat.navruz"
-           target="_blank">
-           📸 Instagram
-        </a>
+    <a href="https://instagram.com/roxat.navruz" target="_blank">
+      Instagram
+    </a>
 
-        <a class="telegram"
-           href="https://t.me/roxat.navruz"
-           target="_blank">
-           ✈️ Telegram
-        </a>
-    </div>
-</section>
+    <a href="https://t.me/roxat.navruz" target="_blank">
+      Telegram yangiliklar
+    </a>
+  </section>
 
-<footer>
-    <h2><span>ROXAT CHOYXONA</span></h2>
-    Ta'mi o'zgacha, xizmati a'lo!
-    <br>
+  <footer>
     © 2026 ROXAT CHOYXONA. Barcha huquqlar himoyalangan.
-</footer>
+  </footer>
 
-<script>
+  <script>
+    const foods = [
+      {
+        name: "Osh",
+        price: 30000,
+        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19"
+      },
+      {
+        name: "Manti",
+        price: 25000,
+        image: "https://images.unsplash.com/photo-1563245372-f21724e3856d"
+      },
+      {
+        name: "Lag'mon",
+        price: 28000,
+        image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624"
+      },
+      {
+        name: "Shashlik",
+        price: 20000,
+        image: "https://images.unsplash.com/photo-1544025162-d76694265947"
+      },
+      {
+        name: "Sho'rva",
+        price: 25000,
+        image: "https://images.unsplash.com/photo-1547592180-85f173990554"
+      },
+      {
+        name: "Somsa",
+        price: 10000,
+        image: "https://images.unsplash.com/photo-1601050690597-df0568f70950"
+      }
+    ];
 
-const foods = [
-    {name:"Sho'rva",price:30000,img:"https://images.unsplash.com/photo-1547592180-85f173990554?w=500"},
-    {name:"Lag'mon",price:35000,img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500"},
-    {name:"Mastava",price:30000,img:"https://images.unsplash.com/photo-1547592180-85f173990554?w=500"},
-    {name:"Chuchvara",price:30000,img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500"},
-    {name:"Manti (1 dona)",price:8000,img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500"},
-    {name:"Tabaka",price:65000,img:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500"},
-    {name:"Vaguri (1 kg)",price:280000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
-    {name:"Jiz (1 kg)",price:280000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
-    {name:"Baliq (1 kg)",price:90000,img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500"},
-    {name:"Krilishka fri",price:40000,img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=500"},
-    {name:"Fri",price:15000,img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500"},
-    {name:"Qo'y jaz",price:32000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
-    {name:"Qiyma (1)",price:20000,img:"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500"},
-    {name:"Qiyma (2)",price:15000,img:"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500"},
-    {name:"Urdak",price:20000,img:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500"},
-    {name:"Tovuk kanot",price:20000,img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=500"},
-    {name:"Dumba",price:25000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
-    {name:"Mangal tovuk",price:65000,img:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500"}
-];
+    let cart = [];
 
-let cart = [];
+    const params = new URLSearchParams(window.location.search);
+    const requestedTable = Number(params.get("stol"));
 
-const params = new URLSearchParams(location.search);
-const table = params.get("stol");
+    const tableNumber =
+      Number.isInteger(requestedTable) &&
+      requestedTable >= 1 &&
+      requestedTable <= 30
+        ? requestedTable
+        : null;
 
-document.getElementById("tableNumber").textContent =
-    table && Number(table)>=1 && Number(table)<=30
-    ? "🪑 Sizning stolingiz: "+table
-    : "🪑 Stol raqami ko'rsatilmagan";
+    document.getElementById("tableNumber").textContent =
+      tableNumber ? tableNumber : "Belgilanmagan";
 
-const menuGrid = document.getElementById("menuGrid");
+    function renderMenu() {
+      const menu = document.getElementById("menuList");
 
-foods.forEach((food,index)=>{
-    const card = document.createElement("div");
-    card.className="food-card";
+      menu.innerHTML = foods.map((food, index) => `
+        <div class="food-card">
+          <img src="${food.image}" alt="${food.name}">
+          <div class="food-info">
+            <h3>${food.name}</h3>
+            <p class="price">${food.price.toLocaleString("uz-UZ")} so'm</p>
+            <button onclick="addToCart(${index})">
+              Savatchaga qo'shish
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
 
-    const img=document.createElement("img");
-    img.src=food.img;
-    img.alt=food.name;
-    img.loading="lazy";
+    function addToCart(index) {
+      const food = foods[index];
+      const existing = cart.find(item => item.name === food.name);
 
-    const details=document.createElement("div");
-    details.className="food-details";
-
-    const name=document.createElement("h3");
-    name.textContent=food.name;
-
-    const price=document.createElement("p");
-    price.textContent=food.price.toLocaleString("uz-UZ")+" so'm";
-
-    const button=document.createElement("button");
-    button.textContent="➕ Savatchaga qo'shish";
-    button.onclick=()=>addToCart(index);
-
-    details.append(name,price,button);
-    card.append(img,details);
-    menuGrid.appendChild(card);
-});
-
-function addToCart(index){
-    const food=foods[index];
-    const existing=cart.find(x=>x.name===food.name);
-
-    if(existing){
+      if (existing) {
         existing.quantity++;
-    }else{
+      } else {
         cart.push({
-            name:food.name,
-            price:food.price,
-            quantity:1
+          name: food.name,
+          price: food.price,
+          quantity: 1
         });
+      }
+
+      renderCart();
     }
 
-    updateCart();
-}
+    function changeQuantity(index, amount) {
+      cart[index].quantity += amount;
 
-function removeFromCart(index){
-    cart.splice(index,1);
-    updateCart();
-}
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
 
-function updateCart(){
-    const box=document.getElementById("cartItems");
-    box.innerHTML="";
-
-    if(cart.length===0){
-        box.textContent="Savatcha hozircha bo'sh";
+      renderCart();
     }
 
-    let subtotal=0;
+    function removeItem(index) {
+      cart.splice(index, 1);
+      renderCart();
+    }
 
-    cart.forEach((item,index)=>{
-        const sum=item.price*item.quantity;
-        subtotal+=sum;
+    function renderCart() {
+      const cartItems = document.getElementById("cartItems");
 
-        const row=document.createElement("div");
-        row.className="cart-item";
+      if (cart.length === 0) {
+        cartItems.innerHTML = "Savatcha hozircha bo'sh.";
+      } else {
+        cartItems.innerHTML = cart.map((item, index) => `
+          <div class="cart-item">
+            <div>
+              <strong>${item.name}</strong>
+              <br>
+              ${(item.price * item.quantity).toLocaleString("uz-UZ")} so'm
+            </div>
 
-        const text=document.createElement("span");
-        text.textContent=
-            item.name+" × "+item.quantity+
-            " — "+sum.toLocaleString("uz-UZ")+" so'm";
+            <div class="cart-controls">
+              <button onclick="changeQuantity(${index}, -1)">−</button>
+              <span>${item.quantity}</span>
+              <button onclick="changeQuantity(${index}, 1)">+</button>
+              <button class="remove" onclick="removeItem(${index})">
+                O'chirish
+              </button>
+            </div>
+          </div>
+        `).join("");
+      }
 
-        const remove=document.createElement("button");
-        remove.className="remove-btn";
-        remove.textContent="✖";
-        remove.onclick=()=>removeFromCart(index);
+      const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+      );
 
-        row.append(text,remove);
-        box.appendChild(row);
-    });
+      const service = Math.round(subtotal * 0.10);
+      const total = subtotal + service;
 
-    const service=Math.round(subtotal*0.10);
-    const total=subtotal+service;
-
-    document.getElementById("subtotal").textContent=
+      document.getElementById("subtotal").textContent =
         subtotal.toLocaleString("uz-UZ");
 
-    document.getElementById("service").textContent=
+      document.getElementById("service").textContent =
         service.toLocaleString("uz-UZ");
 
-    document.getElementById("total").textContent=
+      document.getElementById("total").textContent =
         total.toLocaleString("uz-UZ");
-}
-
-function sendOrder(){
-    if(cart.length===0){
-        alert("Avval savatchaga taom qo'shing!");
-        return;
     }
 
-    let subtotal=0;
+    function sendOrder() {
+      if (cart.length === 0) {
+        alert("Avval savatchaga taom qo'shing!");
+        return;
+      }
 
-    let message="🍽️ ROXAT CHOYXONA BUYURTMASI\n\n";
-    message+="🪑 Stol: "+(table||"Ko'rsatilmagan")+"\n\n";
+      const subtotal = cart.reduce(
+        (sum, item) => sum + item.price * item.quantity, 0
+      );
 
-    cart.forEach(item=>{
-        const sum=item.price*item.quantity;
-        subtotal+=sum;
+      const service = Math.round(subtotal * 0.10);
+      const total = subtotal + service;
 
-        message+="• "+item.name+
-        " × "+item.quantity+
-        " = "+sum.toLocaleString("uz-UZ")+" so'm\n";
-    });
+      const message = [
+        "ROXAT CHOYXONA — YANGI BUYURTMA",
+        "",
+        "Stol: " + (tableNumber || "Belgilanmagan"),
+        "",
+        ...cart.map(item =>
+          `${item.name} x ${item.quantity} = ${(item.price * item.quantity).toLocaleString("uz-UZ")} so'm`
+        ),
+        "",
+        "Mahsulotlar: " + subtotal.toLocaleString("uz-UZ") + " so'm",
+        "Xizmat haqi: " + service.toLocaleString("uz-UZ") + " so'm",
+        "JAMI: " + total.toLocaleString("uz-UZ") + " so'm"
+      ].join("\n");
 
-    const service=Math.round(subtotal*0.10);
-    const total=subtotal+service;
+      // Buyurtma guruhini ochadi.
+      // Guruhga xabarni avtomatik yuborish uchun Telegram bot va server kerak.
+      const telegramLink = "https://t.me/Roxat_choyxonaa";
 
-    message+="\nJami: "+subtotal.toLocaleString("uz-UZ")+" so'm";
-    message+="\nXizmat haqi: "+service.toLocaleString("uz-UZ")+" so'm";
-    message+="\nUmumiy: "+total.toLocaleString("uz-UZ")+" so'm";
+      window.open(telegramLink, "_blank");
 
-    const url="https://t.me/Roxat_choyxonaa?text="+
-        encodeURIComponent(message);
+      // Buyurtma matnini nusxalashga yordam beradi.
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(message)
+          .then(() => alert("Buyurtma matni nusxalandi. Telegram guruhiga kirib yuboring."))
+          .catch(() => alert("Telegram guruhiga kirib, buyurtmangizni yozing."));
+      } else {
+        alert("Telegram guruhiga kirib, buyurtmangizni yozing.");
+      }
+    }
 
-    window.open(url,"_blank");
-}
-
-</script>
+    renderMenu();
+    renderCart();
+  </script>
 
 </body>
 </html>
