@@ -1,0 +1,554 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROXAT CHOYXONA | Premium Dining</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --green: #10291d;
+    --dark: #091b13;
+    --gold: #d9b45b;
+    --cream: #f7f1e5;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+    background: var(--dark);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+}
+
+button { cursor: pointer; }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 7%;
+    background: #0c2117;
+    border-bottom: 1px solid #b38d43;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--gold);
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 13px;
+}
+
+nav a:hover { color: var(--gold); }
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+    background:
+    linear-gradient(rgba(4,20,12,.72),rgba(4,20,12,.88)),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content { max-width: 750px; }
+
+.hero small {
+    color: var(--gold);
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 8vw, 76px);
+    margin: 25px 0;
+}
+
+.hero h1 span { color: var(--gold); }
+
+.hero p {
+    line-height: 1.9;
+    color: #ddd;
+    margin-bottom: 30px;
+}
+
+.gold-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: var(--gold);
+    color: #10291d;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 800;
+    border: none;
+}
+
+.gold-btn:hover { background: #f0d38c; }
+
+section { padding: 75px 7%; }
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title small {
+    color: var(--gold);
+    letter-spacing: 4px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-top: 12px;
+}
+
+.section-title p {
+    color: #aaa;
+    margin-top: 12px;
+    line-height: 1.7;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 22px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.food-card {
+    background: #142d20;
+    border: 1px solid #294532;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.food-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+}
+
+.food-card img {
+    width: 100%;
+    height: 175px;
+    object-fit: cover;
+}
+
+.food-details { padding: 17px; }
+
+.food-details h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.food-details p {
+    color: var(--gold);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.food-details button {
+    width: 100%;
+    padding: 12px;
+    background: var(--gold);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.food-details button:hover { background: #f1d68f; }
+
+#tableNumber {
+    text-align: center;
+    color: var(--gold);
+    font-weight: bold;
+    padding: 18px;
+    background: #10291d;
+}
+
+.cart {
+    max-width: 850px;
+    margin: 30px auto 0;
+    background: #142d20;
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.cart h2 {
+    text-align: center;
+    color: var(--gold);
+    font-family: 'Playfair Display',serif;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 0;
+    border-bottom: 1px solid #34503a;
+}
+
+.remove-btn {
+    background: #a33c32;
+    color: white;
+    border: none;
+    padding: 7px 11px;
+    border-radius: 5px;
+}
+
+.total {
+    line-height: 2.2;
+    margin-top: 20px;
+}
+
+.total strong {
+    color: var(--gold);
+    font-size: 20px;
+}
+
+.order-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    background: #229e59;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.social {
+    background: #10291d;
+    text-align: center;
+}
+
+.social p {
+    color: #ccc;
+    max-width: 600px;
+    margin: 18px auto;
+    line-height: 1.9;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.instagram { background: #bd367c; }
+.telegram { background: #229ed9; }
+
+footer {
+    text-align: center;
+    padding: 30px 15px;
+    background: #07150e;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 2;
+}
+
+footer span { color: var(--gold); }
+
+@media(max-width:600px) {
+    nav { padding: 17px 4%; }
+    nav a { margin-left: 9px; font-size: 11px; }
+    .logo { font-size: 19px; }
+    section { padding: 55px 5%; }
+    .hero { min-height: 470px; }
+    .section-title h2 { font-size: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">ROXAT ✦</div>
+    <div>
+        <a href="#home">Bosh sahifa</a>
+        <a href="#menu">Menyu</a>
+        <a href="#social">Aloqa</a>
+    </div>
+</nav>
+
+<header class="hero" id="home">
+    <div class="hero-content">
+        <small>PREMIUM RESTAURANT</small>
+        <h1>ROXAT <span>CHOYXONA</span></h1>
+        <p>
+            Milliy taomlar, betakror ta'm va yuqori darajadagi xizmat.
+            Siz uchun eng yaxshi muhit va unutilmas taassurot!
+        </p>
+        <a href="#menu" class="gold-btn">MENYUNI KO'RISH ↓</a>
+    </div>
+</header>
+
+<div id="tableNumber">🪑 Stol raqami: aniqlanmoqda...</div>
+
+<section id="menu">
+    <div class="section-title">
+        <small>OUR MENU</small>
+        <h2>Bizning menyu</h2>
+        <p>Sevimli taomingizni tanlang va buyurtma bering.</p>
+    </div>
+
+    <div class="menu-grid" id="menuGrid"></div>
+
+    <div class="cart">
+        <h2>🛒 Sizning savatchangiz</h2>
+
+        <div id="cartItems">Savatcha hozircha bo'sh</div>
+
+        <div class="total">
+            <div>Jami: <span id="subtotal">0</span> so'm</div>
+            <div>Xizmat haqi (10%): <span id="service">0</span> so'm</div>
+            <hr>
+            <strong>Umumiy: <span id="total">0</span> so'm</strong>
+        </div>
+
+        <button class="order-btn" onclick="sendOrder()">
+            ✈️ TELEGRAM ORQALI BUYURTMA
+        </button>
+    </div>
+</section>
+
+<section class="social" id="social">
+    <div class="section-title">
+        <small>FOLLOW US</small>
+        <h2>Biz bilan aloqada bo'ling</h2>
+    </div>
+
+    <p>
+        ROXAT CHOYXONANING barcha yangiliklari,
+        e'lonlari, aksiyalari va maxsus takliflari
+        bizning rasmiy ijtimoiy sahifalarimizda joylashtiriladi.
+        Bizni kuzatib boring!
+    </p>
+
+    <div class="social-links">
+        <a class="instagram"
+           href="https://instagram.com/roxat.navruz"
+           target="_blank">
+           📸 Instagram
+        </a>
+
+        <a class="telegram"
+           href="https://t.me/roxat.navruz"
+           target="_blank">
+           ✈️ Telegram
+        </a>
+    </div>
+</section>
+
+<footer>
+    <h2><span>ROXAT CHOYXONA</span></h2>
+    Ta'mi o'zgacha, xizmati a'lo!
+    <br>
+    © 2026 ROXAT CHOYXONA. Barcha huquqlar himoyalangan.
+</footer>
+
+<script>
+
+const foods = [
+    {name:"Sho'rva",price:30000,img:"https://images.unsplash.com/photo-1547592180-85f173990554?w=500"},
+    {name:"Lag'mon",price:35000,img:"https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500"},
+    {name:"Mastava",price:30000,img:"https://images.unsplash.com/photo-1547592180-85f173990554?w=500"},
+    {name:"Chuchvara",price:30000,img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500"},
+    {name:"Manti (1 dona)",price:8000,img:"https://images.unsplash.com/photo-1563245372-f21724e3856d?w=500"},
+    {name:"Tabaka",price:65000,img:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500"},
+    {name:"Vaguri (1 kg)",price:280000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
+    {name:"Jiz (1 kg)",price:280000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
+    {name:"Baliq (1 kg)",price:90000,img:"https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=500"},
+    {name:"Krilishka fri",price:40000,img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=500"},
+    {name:"Fri",price:15000,img:"https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500"},
+    {name:"Qo'y jaz",price:32000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
+    {name:"Qiyma (1)",price:20000,img:"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500"},
+    {name:"Qiyma (2)",price:15000,img:"https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=500"},
+    {name:"Urdak",price:20000,img:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500"},
+    {name:"Tovuk kanot",price:20000,img:"https://images.unsplash.com/photo-1562967914-608f82629710?w=500"},
+    {name:"Dumba",price:25000,img:"https://images.unsplash.com/photo-1544025162-d76694265947?w=500"},
+    {name:"Mangal tovuk",price:65000,img:"https://images.unsplash.com/photo-1532550907401-a500c9a57435?w=500"}
+];
+
+let cart = [];
+
+const params = new URLSearchParams(location.search);
+const table = params.get("stol");
+
+document.getElementById("tableNumber").textContent =
+    table && Number(table)>=1 && Number(table)<=30
+    ? "🪑 Sizning stolingiz: "+table
+    : "🪑 Stol raqami ko'rsatilmagan";
+
+const menuGrid = document.getElementById("menuGrid");
+
+foods.forEach((food,index)=>{
+    const card = document.createElement("div");
+    card.className="food-card";
+
+    const img=document.createElement("img");
+    img.src=food.img;
+    img.alt=food.name;
+    img.loading="lazy";
+
+    const details=document.createElement("div");
+    details.className="food-details";
+
+    const name=document.createElement("h3");
+    name.textContent=food.name;
+
+    const price=document.createElement("p");
+    price.textContent=food.price.toLocaleString("uz-UZ")+" so'm";
+
+    const button=document.createElement("button");
+    button.textContent="➕ Savatchaga qo'shish";
+    button.onclick=()=>addToCart(index);
+
+    details.append(name,price,button);
+    card.append(img,details);
+    menuGrid.appendChild(card);
+});
+
+function addToCart(index){
+    const food=foods[index];
+    const existing=cart.find(x=>x.name===food.name);
+
+    if(existing){
+        existing.quantity++;
+    }else{
+        cart.push({
+            name:food.name,
+            price:food.price,
+            quantity:1
+        });
+    }
+
+    updateCart();
+}
+
+function removeFromCart(index){
+    cart.splice(index,1);
+    updateCart();
+}
+
+function updateCart(){
+    const box=document.getElementById("cartItems");
+    box.innerHTML="";
+
+    if(cart.length===0){
+        box.textContent="Savatcha hozircha bo'sh";
+    }
+
+    let subtotal=0;
+
+    cart.forEach((item,index)=>{
+        const sum=item.price*item.quantity;
+        subtotal+=sum;
+
+        const row=document.createElement("div");
+        row.className="cart-item";
+
+        const text=document.createElement("span");
+        text.textContent=
+            item.name+" × "+item.quantity+
+            " — "+sum.toLocaleString("uz-UZ")+" so'm";
+
+        const remove=document.createElement("button");
+        remove.className="remove-btn";
+        remove.textContent="✖";
+        remove.onclick=()=>removeFromCart(index);
+
+        row.append(text,remove);
+        box.appendChild(row);
+    });
+
+    const service=Math.round(subtotal*0.10);
+    const total=subtotal+service;
+
+    document.getElementById("subtotal").textContent=
+        subtotal.toLocaleString("uz-UZ");
+
+    document.getElementById("service").textContent=
+        service.toLocaleString("uz-UZ");
+
+    document.getElementById("total").textContent=
+        total.toLocaleString("uz-UZ");
+}
+
+function sendOrder(){
+    if(cart.length===0){
+        alert("Avval savatchaga taom qo'shing!");
+        return;
+    }
+
+    let subtotal=0;
+
+    let message="🍽️ ROXAT CHOYXONA BUYURTMASI\n\n";
+    message+="🪑 Stol: "+(table||"Ko'rsatilmagan")+"\n\n";
+
+    cart.forEach(item=>{
+        const sum=item.price*item.quantity;
+        subtotal+=sum;
+
+        message+="• "+item.name+
+        " × "+item.quantity+
+        " = "+sum.toLocaleString("uz-UZ")+" so'm\n";
+    });
+
+    const service=Math.round(subtotal*0.10);
+    const total=subtotal+service;
+
+    message+="\nJami: "+subtotal.toLocaleString("uz-UZ")+" so'm";
+    message+="\nXizmat haqi: "+service.toLocaleString("uz-UZ")+" so'm";
+    message+="\nUmumiy: "+total.toLocaleString("uz-UZ")+" so'm";
+
+    const url="https://t.me/Roxat_choyxonaa?text="+
+        encodeURIComponent(message);
+
+    window.open(url,"_blank");
+}
+
+</script>
+
+</body>
+</html>
